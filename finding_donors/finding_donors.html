@@ -13334,7 +13334,8 @@ ref. <a href="https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bay
 The Naive Bayes classifier assumes conditional independence of model features so performs poorly when this assumption is invalid.
 ref. Udacity lesson resources</p>
 <p>What makes this model a good candidate for the problem, given what you know about the data?
-Naive Bayes is a good candidate model for this problem because the problem is a classification problem not a regression problem.</p>
+Naive Bayes is a good candidate model for this problem because the are many features and we don't know which are relevent and which aren't. Naive Bayes is not sensitive to irrelevent features so the algorithm handles this problem.</p>
+<p>ref. <a href="https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bayes-for-classification">https://www.quora.com/What-are-the-advantages-of-using-a-naive-Bayes-for-classification</a></p>
 <p>Decision Trees</p>
 <p>Describe one real-world application in industry where the model can be applied.
 Predicting the energy consumption of a household based on features of the house. Ref. <a href="http://what-when-how.com/artificial-intelligence/decision-tree-applications-for-data-modelling-artificial-intelligence/">http://what-when-how.com/artificial-intelligence/decision-tree-applications-for-data-modelling-artificial-intelligence/</a></p>
@@ -13347,8 +13348,9 @@ Finally, decision trees are intuitive and relatively simple to explain and visua
 <p>ref. <a href="http://www.simafore.com/blog/bid/62333/4-key-advantages-of-using-decision-trees-for-predictive-analytics">http://www.simafore.com/blog/bid/62333/4-key-advantages-of-using-decision-trees-for-predictive-analytics</a>
 ref. <a href="https://www.quora.com/What-are-the-advantages-of-using-a-decision-tree-for-classification">https://www.quora.com/What-are-the-advantages-of-using-a-decision-tree-for-classification</a></p>
 <p>What are the weaknesses of the model; when does it perform poorly?
-The real life availability of training data can be a limitation for decision tree classifiers.
-ref. <a href="https://www.ncbi.nlm.nih.gov/pubmed/10384513">https://www.ncbi.nlm.nih.gov/pubmed/10384513</a></p>
+They can easily overfit the data unless a maximum depth parameter is introduced or the tree is pruned by restriciting the minimum samples in each leaf.
+Also, decision trees can be extremely sensitive to small changes to perturbations in the data set which may lead to an entirely different decision tree.</p>
+<p>ref. <a href="https://stats.stackexchange.com/questions/1292/what-is-the-weak-side-of-decision-trees">https://stats.stackexchange.com/questions/1292/what-is-the-weak-side-of-decision-trees</a></p>
 <p>What makes this model a good candidate for the problem, given what you know about the data?
 This model is a good candidate for this problem because the dataset contains several heavily skewed features e.g. capital gain and capital loss</p>
 <p>Ensemble Methods</p>
@@ -13368,7 +13370,7 @@ requirement is satisfied - the base learner should perform
 consistently better than random guessing, with generalization
 error &lt; 0.5 for binary classification problems.</p>
 <p>Ref. Udacity Ensemble Methods training resources</p>
-<p>What makes this model a good candidate for the problem, given what you know about the data? Considering the data set is quite large, a model is susceptible to overfitting to the training data. Ensemble methods e.g. Random Forest helps reduce the variance (overfitting) of the model. Therefore, this model may be a good candidate.</p>
+<p>What makes this model a good candidate for the problem, given what you know about the data? Small perturbations in the training data could result in different individual decision trees forming. Using Ensemble methods e.g. Random Forest will average out many decision trees and reduce the effect of a particular tree being incorrect. Also the model helps reduce the variance (overfitting) of an individual tree. Therefore, this model may be a good candidate.</p>
 <p>Why would you decide one model over another?
 The Gaussian Naive Bayes model would be preferable over the other two models if a high importance was placed on low training times. This would be beneficial if the data set was regularly updated.</p>
 <p>A Decision Tree classifier would be appropriate if a high importance was placed on a low testing/ prediction time. Also, a Decision Tree is simpler, easier to visualise, less computationally expensive and easier to implement.</p>
