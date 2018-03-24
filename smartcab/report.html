@@ -16489,8 +16489,8 @@ always chooses the correct action and reaches the destination on time for 100% o
 <p><strong>Answer:</strong></p>
 <p>The optimal policy will relate each state to an optimal actions. Based on information from ref. <a href="https://driversed.com/driving-information/signs-signals-and-markings/right-of-way.aspx">https://driversed.com/driving-information/signs-signals-and-markings/right-of-way.aspx</a> and ref. <a href="https://www.dmv.org/how-to-guides/intersections-and-right-of-way.php">https://www.dmv.org/how-to-guides/intersections-and-right-of-way.php</a>, the optimal policy would be as follows:</p>
 <p>The driving agent should yield to vehicles entering ahead or to the right of themselves.</p>
-<p>If turning right, the agent should yield to drivers going straight.</p>
-<p>If turning left, the agent should yield to all drivers.</p>
+<p>If turning right, the agent should yield to drivers going straight. Specifically, the agent should yield to drivers coming from the left and proceeding straight on. This only applies on a red light. On a green light, the agent should proceeed right if desired.</p>
+<p>If turning left at a green light, the agent should yield to oncoming traffic. However, if the oncoming traffic wants to turn right (the same way) then both cars can proceed.</p>
 <p>If going straight on, the agent should go unless the traffic light is red.</p>
 <p>Also, the agent should never go on a red light, unless the agent is turning right and the agent has already checked that it does not need to yield to traffic going straight on.</p>
 <p>My state dictionary is as follows:
@@ -16518,7 +16518,13 @@ For this state, the policy is to turn right. This is optimal because oncoming tr
  -- right : 0.71
  -- left : 0.14</p>
 <p>The agent want to go right and the improved q-learning action for this state is right. This is the optimal policy because the oncoming traffic wants to turn left but should give way to the q-learning agent. Also, the traffic intends to go left which has no effect on the decision of our q-learning agent.</p>
-<p>I searchd the sim_improved-learning.txt for over 30 minutes but could not find an example that demonstrated the improved q-learning agent did not learn the optimal policy.</p>
+<p>The following example from sim_improved-learning.txt demonstrate the improved q-learning agent learned a sub-optimal policy:
+('right', 'green', 'forward', 'forward', 'left')
+ -- None : -0.21
+ -- forward : 0.12
+ -- right : 0.00
+ -- left : -0.42</p>
+<p>The agent wants to go right but the policy says it goes straight on. At a green light with oncoming traffic, there is no reason not to go straight on. Therefore this policy is sub-optimal.</p>
 
 </div>
 </div>
